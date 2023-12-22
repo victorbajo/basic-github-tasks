@@ -17,11 +17,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"Status code should be 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"Status code is 200\", function () {",
+									"pm.test(\"Status code name should have an OK string\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});"
 								],
