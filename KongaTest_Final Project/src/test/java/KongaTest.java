@@ -60,7 +60,7 @@ public class KongaTest {
         Thread.sleep(1000);
     }
 
-    @Test(priority = 0)
+    @Test(priority = 1)
     public void Signin() throws InterruptedException {
         //2.  Signin to Konga successfully
 
@@ -76,7 +76,7 @@ public class KongaTest {
         Thread.sleep(5000);
     }
 
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void Computers() throws InterruptedException {
         //3. Click Computers and accessories from Categories
         driver.findElement(By.xpath("//*[@id=\"nav-bar-fix\"]/div[2]/div/a[2]")).click();
@@ -123,38 +123,38 @@ public class KongaTest {
 
 
     }
-    @Test (priority = 1)
+   @Test (priority = 3)
     public void CardDetails() throws InterruptedException {
        //9. Select a Card Payment Method
        //9a Change from default to Iframe
-       WebElement paymethod = driver.findElement(By.tagName("iframe"));
 
-       driver.switchTo().frame("kpg-frame-component");
-       System.out.println("Payment method");
-       Thread.sleep(7000);
+        WebElement paymethod = driver.findElement(By.tagName("iframe"));
 
+        driver.switchTo().frame("kpg-frame-component");
+        Thread.sleep(7000);
+        System.out.println("Payment Method");
 
        //9b Select card payment method
         WebElement cardpayment = driver.findElement(By.className("Card"));
         cardpayment.click();
         System.out.println("Card Payment method selected");
-        Thread.sleep(10000);
+        Thread.sleep(7000);
 
        //10. Input Invalid Card Details
        // Input invalid card number on the card number field
        WebElement carddigit = driver.findElement(By.id("card-number"));
        carddigit.sendKeys("123456781234");
-       Thread.sleep(10000);
+       Thread.sleep(5000);
 
         //Input an expiry date for the card
-        WebElement datedigit = driver.findElement(By.id("expiriy"));
+        WebElement datedigit = driver.findElement(By.id("expiry"));
         datedigit.sendKeys("0624");
-        Thread.sleep(10000);
+        Thread.sleep(5000);
 
        //Input a CVV number
         WebElement cvv = driver.findElement(By.id("cvv"));
         cvv.sendKeys("123");
-        Thread.sleep(10000);
+        Thread.sleep(5000);
 
         //11. Print Out the error message: Invalid Card Number
         WebElement error = driver.findElement(By.id("card-number_unhappy"));
@@ -163,7 +163,7 @@ public class KongaTest {
         Thread.sleep(5000);
 
         //12. Close the iFrame that displays the input card model
-        WebElement closeframe = driver.findElement(By.className("data-card_close"));
+        WebElement closeframe = driver.findElement(By.className("data-card__close"));
         closeframe.click();
         Thread.sleep(5000);
 
